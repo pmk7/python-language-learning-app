@@ -31,12 +31,9 @@ def convert():
         
     
 
-    # id_words = [(i +1, word) for i, word in enumerate(adjusted_content)]  
-   
-    print(my_words[1])
-
-    # rs = json.dumps(dict(word_dict), ensure_ascii=False)
-    # print(rs)
+    
+    words_json = json.dumps((my_words), ensure_ascii=False)
+    print(words_json)
     
     
    
