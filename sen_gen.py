@@ -21,14 +21,5 @@ class SentenceGenerator:
         response_text = response.get('choices')[0].get('text')
         return response_text.strip()
 
-# Usage example:
-
-# api_key = os.getenv("OPENAI_API_KEY")
-# selected_word_example = SentenceGenerator(api_key)
-
-# word = 'Handy'
-# generated_sentence = selected_word_example.generate_sentence(word)
-
-# print(generated_sentence)
 
   
