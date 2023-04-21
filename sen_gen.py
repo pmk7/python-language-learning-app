@@ -3,9 +3,11 @@ import openai
 from data import *
 
 class SentenceGenerator:
+    """Generates a sentence based on a given word, fetched from the OpenAI API."""
     def __init__(self, api_key):
         self.api_key = api_key
         openai.api_key = api_key
+
 
     def generate_sentence(self, word, max_tokens=75, temperature=0.9):
         prompt = f"Ein Beispiel mit: {word}"

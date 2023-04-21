@@ -35,11 +35,14 @@ class Quiz:
     
     
 
-class UpdateDictionary:
+class Dictionary:
   def __init__(self, vocab):
     self.vocab = vocab
     
     def add(self):
+      pass
+    
+    def remove(self):
       pass
 
 
