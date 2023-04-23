@@ -1,4 +1,4 @@
-# language-learning-app
+# python-language-learning-app
 
 To utilize the sentence generator with OpenAI, follow these steps:
 
