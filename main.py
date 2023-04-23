@@ -44,6 +44,11 @@ class Dictionary:
     def remove(self):
       pass
 
+class Flashcard:
+  pass
+
+class Player:
+  pass
 
 
 class Menu:
