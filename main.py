@@ -34,7 +34,6 @@ class Quiz:
   
     
     
-
 class Dictionary:
   def __init__(self, vocab):
     self.vocab = vocab
@@ -44,7 +43,13 @@ class Dictionary:
     
     def remove(self):
       pass
-
+    
+    
+class Flascard:
+  pass
+    
+class Player:
+  pass
 
 
 class Menu:
@@ -72,6 +77,8 @@ class Menu:
         continue
       
       
- 
+
+  
+  
 
 player1 = Menu(my_words)      
