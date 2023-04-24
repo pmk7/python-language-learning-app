@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "german": "Haus",
+    "english": "house",
+    "correct": 0,
+    "incorrect": 0
+  },
+  {
+    "id": 2,
+    "german": "Handy",
+    "english": "phone",
+    "correct": 0,
+    "incorrect": 0
+  }
+]
