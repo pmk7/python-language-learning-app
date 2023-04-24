@@ -1,16 +1,1 @@
-[
-  {
-    "id": 1,
-    "german": "Haus",
-    "english": "house",
-    "correct": 0,
-    "incorrect": 0
-  },
-  {
-    "id": 2,
-    "german": "Handy",
-    "english": "phone",
-    "correct": 0,
-    "incorrect": 0
-  }
-]
+[{"id": 3, "german": "schwindlich [veraltet]", "english": "giddy", "correct": 0, "incorrect": 0}, {"id": 4, "german": "verfügen", "english": "to command", "correct": 0, "incorrect": 0}, {"id": 5, "german": "aufhaben [ugs] [geöffnet haben (Geschäft, Behörde)]", "english": "to be open [of a shop or office]", "correct": 0, "incorrect": 0}, {"id": 6, "german": "etw [Akk] beanspruchen", "english": "to claim sth", "correct": 0, "incorrect": 0}, {"id": 7, "german": "Unterlassung {f}", "english": "omission", "correct": 0, "incorrect": 0}, {"id": 6, "german": "Zärtlichkeit {f}", "english": "endearment", "correct": 0, "incorrect": 0}]
