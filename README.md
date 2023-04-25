@@ -6,7 +6,7 @@
 
 3. Install the OpenAI Python package: Open your terminal or command prompt and run the following command to install the OpenAI package:
 
-sudo pip install openai
+sudo pip3 install openai
 
 3. Set the OpenAI API key as an environment variable on your system:
 
