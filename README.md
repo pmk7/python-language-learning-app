@@ -2,6 +2,8 @@
 
 1. Install Python: If you don't have Python installed on your machine, download and install it from https://www.python.org/downloads/. Make sure to check the "Add Python to PATH" option during installation.
 
+--- Skip to step 4 if you don't want to connect to openAI api ---
+
 2. Obtain a personal API key from OpenAI: Visit the following link to get your API key: https://platform.openai.com/account/api-keys
 
 3. Install the OpenAI Python package: Open your terminal or command prompt and run the following command to install the OpenAI package:
@@ -19,6 +21,8 @@ For Windows: Run the following command in your Command Prompt or PowerShell, rep
 setx OPENAI_API_KEY "your_api_key"
 
 Note that you might need to restart your terminal, command prompt, or IDE for the environment variable to take effect.
+
+---
 
 4. Clone the project: Clone the project repository from GitHub or download it as a ZIP file and extract it to a folder on your computer.
 
