@@ -30,5 +30,3 @@ Note that you might need to restart your terminal, command prompt, or IDE for th
    Run the Python script: In your terminal or command prompt, run the following command to start the Python script:
 
 python3 main.py
-
-Now you should be able to use the sentence generator with the OpenAI package. These instructions provide more detailed steps that should be accessible to users with no coding experience.
