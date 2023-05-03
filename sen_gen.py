@@ -10,7 +10,7 @@ class SentenceGenerator:
         self.api_key = api_key
         openai.api_key = api_key
 
-    def generate_sentence(self, word, max_tokens=75, temperature=0.9):
+    def generate_sentence(self, word, max_tokens=50, temperature=0.9):
         prompt = f"Ein Beispiel mit: {word}"
 
         try:
@@ -30,3 +30,24 @@ class SentenceGenerator:
         except Exception as e:
             print(f"Unexpected error: {e}")
             return None
+
+    def test_api(self, word):
+        try:
+            response = openai.Completion.create(
+                engine="text-davinci-003",
+                prompt="Test: ",
+                max_tokens=5,
+                temperature=0.9,
+                stop=[".", "!", "?"]
+            )
+
+            if response.status_code == 200:
+                return True
+            else:
+                return False
+        except openai.error.OpenAIError as e:
+            print(f"Error connecting to the OpenAI API: {e}")
+            return False
+        except Exception as e:
+            print(f"Unexpected error: {e}")
+            return False

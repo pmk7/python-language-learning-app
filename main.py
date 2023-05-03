@@ -102,13 +102,19 @@ class Quiz:
         random_word = self.vocab[random_num]
         ger_word = random_word.get('german')
 
+        # Test api is working
+        test = SentenceGenerator(api_key)
+
         answer = input(
             f"What is the English translation of {ger_word}? Press 'h' for a hint:  \n")
 
-        if answer == 'h':
+        # If Api isn't working, handle issue before it breaks code. Let user continue to play quiz without hint feature.
+        if answer == 'h' and test == True:
             word = SentenceGenerator(api_key)
             print(word.generate_sentence(ger_word) + "\n")
             answer = input("Answer: ")
+        answer = input(
+            "Sorry, the hint feature is't available right now. What is your answer: ")
 
         if answer == random_word.get('english'):
             print("Correct!")
