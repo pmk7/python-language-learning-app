@@ -110,6 +110,7 @@ class Quiz:
 
         # If Api isn't working, handle issue before it breaks code. Let user continue to play quiz without hint feature.
         if answer == 'h' and test == True:
+            # ! Look into this more, instantiating object within another object
             word = SentenceGenerator(api_key)
             print(word.generate_sentence(ger_word) + "\n")
             answer = input("Answer: ")

@@ -1,19 +1,29 @@
 import json
 
-my_words = []
-
 
 def save_vocab_to_json(vocab, filepath):
+    """
+    Save a vocabulary list to a JSON file.
+
+    :param vocab: A list of dictionaries containing word information.
+    :param filepath: The file path where the JSON file will be saved.
+    """
     with open(filepath, 'w', encoding='utf-8') as file:
         json.dump(vocab, file, ensure_ascii=False, indent=4)
 
 
 def convert():
-    f = open("data/my_vocab.txt", "r", encoding="utf-8")
-    content = f.read()
-    f.close()
-    splitcontent = content.splitlines()
+    """
+    Read a vocabulary text file and convert it to a list of dictionaries.
 
+    :return: A list of dictionaries containing word information.
+    """
+    my_words = []
+
+    with open("data/my_vocab.txt", "r", encoding="utf-8") as f:
+        content = f.read()
+
+    splitcontent = content.splitlines()
     adjusted_content = [x.replace("\t", " : ").replace('.', '')
                         for x in splitcontent]
 
