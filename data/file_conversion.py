@@ -15,7 +15,6 @@ def save_vocab_to_json(vocab, filepath):
 def convert():
     """
     Read a vocabulary text file and convert it to a list of dictionaries.
-
     :return: A list of dictionaries containing word information.
     """
     my_words = []
@@ -40,4 +39,4 @@ def convert():
 
 my_words = convert()
 # save_vocab_to_json(my_words, "my_words.json")
-print(save_vocab_to_json(my_words, "my_words.json"))
+save_vocab_to_json(my_words, "my_words.json")

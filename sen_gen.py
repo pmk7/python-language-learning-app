@@ -46,8 +46,8 @@ class SentenceGenerator:
             else:
                 return False
         except openai.error.OpenAIError as e:
-            print(f"Error connecting to the OpenAI API: {e}")
+            # print(f"Error connecting to the OpenAI API: {e}")
             return False
         except Exception as e:
-            print(f"Unexpected error: {e}")
+            # print(f"Unexpected error: {e}")
             return False

@@ -1,6 +1,7 @@
 import os
 import random
 import json
+import datetime
 from sen_gen import SentenceGenerator
 from data import *
 
@@ -24,11 +25,11 @@ class BaseUser:
             self.load_vocab()
 
     def load_vocab(self):
-        with open(self.filepath, 'r') as file:
+        with open(self.filepath, 'r', encoding='utf-8') as file:
             self.vocab = json.load(file)
 
     def save_vocab(self):
-        with open(self.filepath, 'w') as file:
+        with open(self.filepath, 'w', encoding='utf-8') as file:
             json.dump(self.vocab, file)
 
     def print_my_vocab(self):
@@ -71,9 +72,21 @@ class RegularUser(BaseUser):
     def __init__(self, username, filepath):
         super().__init__(username, filepath)
         self.quiz_rounds = 3
+        self.words_added_today = 0
+        self.last_reset_date = datetime.date.today()
 
-    def __str__(self):
-        return f"Regular User: {self.username}, Vocab: {len(self.vocab)}"
+    def add_word(self, german, english):
+        if self.words_added_today >= 3:
+            print("You have reached the limit of 3 words per day.")
+            return
+        super().add_word(german, english)
+        self.words_added_today += 1
+
+    def reset_daily_counter(self):
+        today = datetime.date.today()
+        if self.last_reset_date != today:
+            self.words_added_today = 0
+            self.last_reset_date = today
 
 
 class PremiumUser(BaseUser):
@@ -89,33 +102,49 @@ class Dictionary(BaseUser):
     def __init__(self, username, filepath):
         super().__init__(username, filepath)
 
+        self.username = username
+        self.filepath = f"{filepath}/{self.username}.json"
+
+    def print_my_dictionary(self):
+        print(self.username)
+
 
 class Quiz:
     def __init__(self, vocab, user):
+        """
+        Initializes the Quiz object.
+
+        Args:
+            vocab (list): List of words to be used in the quiz.
+            user (User): User playing the quiz.
+        """
         self.vocab = vocab
         self.user = user
-
         print("Welcome to the German Quiz!\n")
 
     def random_word(self):
+        """
+        Selects a random word from the vocabulary and quizzes the user.
+        """
         random_num = random.randint(0, len(self.vocab) - 1)
         random_word = self.vocab[random_num]
         ger_word = random_word.get('german')
 
-        # Test api is working
+        # Test if the API is working
         test = SentenceGenerator(api_key)
+        api_test = test.test_api('haus')
 
-        answer = input(
-            f"What is the English translation of {ger_word}? Press 'h' for a hint:  \n")
+        if api_test:
+            answer = input(
+                f"What is the English translation of {ger_word}? Press 'h' for a hint:  \n")
+        else:
+            answer = input(
+                f"What is the English translation of {ger_word}? \n")
 
-        # If Api isn't working, handle issue before it breaks code. Let user continue to play quiz without hint feature.
-        if answer == 'h' and test == True:
-            # ! Look into this more, instantiating object within another object
+        if answer == 'h' and api_test:
             word = SentenceGenerator(api_key)
             print(word.generate_sentence(ger_word) + "\n")
             answer = input("Answer: ")
-        answer = input(
-            "Sorry, the hint feature is't available right now. What is your answer: ")
 
         if answer == random_word.get('english'):
             print("Correct!")
@@ -141,6 +170,7 @@ class Menu:
         print("\nWelcome to your Language App!\n")
 
         while True:
+            user.reset_daily_counter()
             print("\n1. Quiz\n")
             print("\n2. Edit my Dictionary\n")
             print("\n3. Study My Dictionary\n")
@@ -152,9 +182,35 @@ class Menu:
                 game1 = Quiz(my_words, user)
                 game1.random_word()
             elif choice == '2':
-                pass
+                user.print_my_vocab()
+                print("\nDo you want to add or delete words from your dictionary?")
+                edit_choice = input(
+                    "Type 'add' to add words, 'delete' to delete words or 'back' to return to the menu: ")
+
+                while edit_choice not in ['add', 'delete', 'back']:
+                    edit_choice = input(
+                        "Invalid choice. Type 'add' to add words, 'delete' to delete words or 'back' to return to the menu: ")
+
+                if edit_choice == 'add':
+                    german_word = input("Enter the German word: ")
+                    english_word = input("Enter the English translation: ")
+                    user.add_word(german_word, english_word)
+                    print(
+                        f"Added {german_word} ({english_word}) to your dictionary.")
+                elif edit_choice == 'delete':
+                    german_word = input(
+                        "Enter the German word you want to remove: ")
+                    user.remove_word(german_word)
+                    print(f"Removed {german_word} from your dictionary.")
+                elif edit_choice == 'back':
+                    continue
             elif choice == '3':
-                pass
+                if len(user.vocab) == 0:
+                    print(
+                        "Your dictionary is empty. Add words to your dictionary before studying.")
+                else:
+                    game2 = Quiz(user.vocab, user)
+                    game2.random_word()
             elif choice == '4':
                 quit()
             else:
