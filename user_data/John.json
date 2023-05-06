@@ -1,1 +1,4 @@
-[{"id": 1, "german": "stimmig", "english": "coherent", "correct": 0, "incorrect": 0}, {"id": 2, "german": "erhaben tun", "english": "to act superior", "correct": 0, "incorrect": 0}, {"id": 3, "german": "jdm ein St\u00e4ndchen bringen", "english": "to serenade sb", "correct": 0, "incorrect": 0}, {"id": 4, "german": "etw [Akk] vers\u00e4umen", "english": "to omit sth [miss, fail to do]", "correct": 0, "incorrect": 0}, {"id": 5, "german": "jdm graut vor etw [Dat]", "english": "sb dreads sth", "correct": 0, "incorrect": 0}]
+{
+    "vocab": [],
+    "meta": {}
+}

@@ -3,7 +3,7 @@ import json
 
 def save_vocab_to_json(vocab, filepath):
     """
-    Save a vocabulary list to a JSON file.
+    Save a vocabulary list to a JSON file
 
     :param vocab: A list of dictionaries containing word information.
     :param filepath: The file path where the JSON file will be saved.
@@ -14,7 +14,7 @@ def save_vocab_to_json(vocab, filepath):
 
 def convert():
     """
-    Read a vocabulary text file and convert it to a list of dictionaries.
+    Read a vocabulary text file and convert it to a list of dictionaries
     :return: A list of dictionaries containing word information.
     """
     my_words = []
@@ -27,6 +27,11 @@ def convert():
                         for x in splitcontent]
 
     for i, word in enumerate(adjusted_content):
+
+        # Skip empty lines
+        if not word.strip():
+            continue
+
         word_id = i + 1
         eng_word, ger_word = word.split(" : ")
 
@@ -38,5 +43,4 @@ def convert():
 
 
 my_words = convert()
-# save_vocab_to_json(my_words, "my_words.json")
 save_vocab_to_json(my_words, "my_words.json")

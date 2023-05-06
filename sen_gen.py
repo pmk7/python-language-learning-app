@@ -4,7 +4,7 @@ from data import *
 
 
 class SentenceGenerator:
-    """Generates a sentence based on a given word, fetched from the OpenAI API."""
+    """Generates a sentence based on a given word, fetched from the OpenAI API"""
 
     def __init__(self, api_key):
         self.api_key = api_key
