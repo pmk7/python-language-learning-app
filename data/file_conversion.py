@@ -36,7 +36,7 @@ def convert():
         eng_word, ger_word = word.split(" : ")
 
         word_dict = {'id': word_id, 'german': ger_word,
-                     'english': eng_word, 'correct': 0, 'incorrect': 0}
+                     'english': eng_word}
         my_words.append(word_dict)
 
     return my_words

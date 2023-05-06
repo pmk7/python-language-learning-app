@@ -52,7 +52,7 @@ class BaseUser:
         else:
             word_id = len(self.vocab) + 1
             word = {'id': word_id, 'german': german,
-                    'english': english, 'correct': 0, 'incorrect': 0}
+                    'english': english}
             self.vocab.append(word)
             self.save_vocab()
 
