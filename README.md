@@ -32,7 +32,7 @@ Note that you might need to restart your terminal, command prompt, or IDE for th
 
 6. Superclass of BaseUser and two Subclasses: Premium and Regular. To begin, instantiate either a Premium or Regular object- it takes two arguments: the name of the user as a string e.g "John", and the data_directory variable.
 
-7. Now the user has been created, instantiate Menu class with two arguments- the name of the player class e.g john. Second argument is the json file named 'my_words'
+7. Now the user has been created, instantiate Menu class with two arguments- the name of the player class e.g john. Second argument is the json file named 'my_words'. Commented out examples have been left in the program. These can be deleted as well ad the corresponding json files in the user_data folder.
 
 8. Run the Python script: In your terminal or command prompt, run the following command to start the Python script:
 
