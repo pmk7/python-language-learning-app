@@ -26,43 +26,54 @@ class BaseUser:
             self.load_vocab()
 
     def load_vocab(self):
+        """Loads vocabulary from the JSON file"""
         with open(self.filepath, 'r', encoding='utf-8') as file:
             data = json.load(file)
             self.vocab = data.get('vocab', [])
             self.vocab_meta = data.get('meta', {})
+            # Using a set for faster lookups
+            self.vocab_set = {word['german'] for word in self.vocab}
 
     def save_vocab(self):
+        """Saves vocabulary to the JSON file"""
         with open(self.filepath, 'w', encoding='utf-8') as file:
             json.dump({'vocab': self.vocab, 'meta': self.vocab_meta},
                       file, indent=4, ensure_ascii=False)
 
     def print_my_vocab(self):
+        """Prints the user's vocabulary"""
         print(self.vocab)
 
     def find_word(self, german):
-        print(self.vocab)
-        for word in self.vocab:
-            if word['german'] == german:
-                return word
-        return None
+        """Finds a word in the user's vocabulary"""
+        word = [i for i in self.vocab if i['german'] == german]
+        if word:
+            return word[0]
+        else:
+            return print('Word not found!')
 
     def add_word(self, german, english):
-        if self.find_word(german):
+        """Adds a word to the user's vocabulary"""
+        if german in self.vocab_set:
             print('Already contained!')
         else:
             word_id = len(self.vocab) + 1
             word = {'id': word_id, 'german': german,
                     'english': english}
             self.vocab.append(word)
+            self.vocab_set.add(german)
             self.save_vocab()
 
     def remove_word(self, german):
+        """Removes a word from the user's vocabulary"""
         word = self.find_word(german)
         if word:
             self.vocab.remove(word)
+            self.vocab_set.remove(german)
             self.save_vocab()
 
     def update_my_vocab(self, german, english):
+        """Updates the user's vocabulary"""
         word_id = len(self.vocab) + 1
         word = {'id': word_id, 'german': german,
                 'english': english, 'correct': 0, 'incorrect': 0}
@@ -80,6 +91,7 @@ class RegularUser(BaseUser):
             'last_update', datetime.now().date().isoformat()), '%Y-%m-%d').date()
 
     def can_add_word(self):
+        """Checks if the user can add more words to their vocabulary today"""
         today = datetime.now().date()
         if today > self.last_update:
             self.words_today = 0
@@ -88,8 +100,9 @@ class RegularUser(BaseUser):
         return self.words_today < 3
 
     def add_word(self, german, english):
+        """Adds a word to the user's vocabulary, respecting the daily limit"""
         if not self.can_add_word():
-            print("You can only add 3 words per day.")
+            print("You can only add 3 words per day")
             return
 
         super().add_word(german, english)
@@ -97,6 +110,7 @@ class RegularUser(BaseUser):
         self.update_meta_data()
 
     def update_meta_data(self):
+        """Updates the metadata for the user's vocabulary"""
         self.vocab_meta['words_today'] = self.words_today
         self.vocab_meta['last_update'] = self.last_update.isoformat()
         self.save_vocab()
@@ -115,8 +129,8 @@ class Quiz:
         """ Initializes the Quiz object
 
         Args:
-            vocab (list): List of words to be used in the quiz.
-            user (User): User playing the quiz.
+            vocab (list): List of words to be used in the quiz
+            user (User): User playing the quiz
         """
         self.vocab = vocab
         self.user = user
@@ -176,7 +190,7 @@ class Menu:
         """Initializes the Menu object
 
         Args: 
-        user (User): User playing the quiz. 
+        user (User): User playing the quiz
         vocab (list): List of words to be used in the quiz 
         """
         self.user = user
@@ -255,9 +269,9 @@ class Menu:
                 continue
 
 
-john = RegularUser("John", data_directory)
-sarah = PremiumUser("Sarah", data_directory)
+# john = RegularUser("John", data_directory)
+# sarah = PremiumUser("Sarah", data_directory)
 
 
 # player1 = Menu(john, my_words)  # For a regular users
-player2 = Menu(sarah, my_words)  # For a premium user
+# player2 = Menu(sarah, my_words)  # For a premium user
