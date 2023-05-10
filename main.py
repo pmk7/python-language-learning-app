@@ -127,11 +127,13 @@ class PremiumUser(BaseUser):
 
 class Quiz:
     def __init__(self, vocab, user, is_dictionary_quiz=False):
-        """ Initializes the Quiz object
+        """
+        Initializes the Quiz object.
 
         Args:
-            vocab (list): List of words to be used in the quiz
-            user (User): User playing the quiz
+            vocab (list): List of words to be used in the quiz.
+            user (User): User playing the quiz.
+            is_dictionary_quiz (bool, optional): Flag to indicate if it's a dictionary quiz. Defaults to False.
         """
         self.vocab = vocab
         self.user = user
@@ -140,6 +142,15 @@ class Quiz:
         print(f"Welcome to the German Quiz!\n")
 
     def normalize_answer(self, answer):
+        """
+        Normalizes the answer by removing unnecessary characters and spaces.
+
+        Args:
+            answer (str): The user's answer.
+
+        Returns:
+            str: The normalized answer.
+        """
         # Remove 'to ' from the beginning of the answer
         answer = re.sub(r'^to\s', '', answer)
 
@@ -158,7 +169,9 @@ class Quiz:
         return answer
 
     def random_word(self):
-        """ Selects a random word from the vocabulary and quizzes the user """
+        """
+        Selects a random word from the vocabulary and quizzes the user.
+        """
         while True:
             # Generate a random number within the range of the vocabulary length
             random_num = random.randint(0, len(self.vocab) - 1)
@@ -177,38 +190,43 @@ class Quiz:
                 answer = input(
                     f"What is the English translation of {ger_word}? Press 's' to skip: \n")
 
-                if answer.lower() == 's':
+            # Handle user's decision to skip the word
+            if answer.lower() == 's':
+                if len(self.vocab) > 1:
                     print("Skipping this word.\n")
                     continue
+                else:
+                    print(
+                        "You have no words in your dictionary to skip to. Please add words to your dictionary.\n")
+                    break
 
             # Provide a hint if the user inputs 'h' and API is working
-            if answer == 'h' and api_test:
+            if answer.lower() == 'h' and api_test:
                 word = SentenceGenerator(api_key)
                 print(word.generate_sentence(ger_word) + "\n")
                 answer = input("Answer: ")
 
-                # Check the user's answer
+            # Check the user's answer
             normalized_answer = self.normalize_answer(answer)
             normalized_correct_answer = self.normalize_answer(
                 random_word.get('english'))
+
             if normalized_answer == normalized_correct_answer:
                 print("\nCorrect! ⭐️ \n")
                 break
-
             else:
                 print("\nIncorrect! Answer: " + random_word.get("english") +
                       "\n" + "Would you like to add this word to your dictionary?")
 
-            # Check if the user is playing the dictionary quiz
-            if not self.is_dictionary_quiz:
-                # Prompt user to add the word to their dictionary
-                userInput = input("Press 'y' for yes and 'n' for no: ")
-                if userInput == 'y':
-                    self.user.add_word(ger_word, random_word.get('english'))
-                    print("Word added!")
-
-                elif userInput == 'n':
-                    print("Word not added!")
+                # Check if the user is playing the dictionary quiz
+                if not self.is_dictionary_quiz:
+                    user_input = input("Press 'y' for yes and 'n' for no: ")
+                    if user_input == 'y':
+                        self.user.add_word(
+                            ger_word, random_word.get('english'))
+                        print("Word added!")
+                    elif user_input == 'n':
+                        print("Word not added!")
             break
 
 

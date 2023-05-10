@@ -1,4 +1,10 @@
 {
-    "vocab": [],
+    "vocab": [
+        {
+            "id": 1,
+            "german": "grauenhaft",
+            "english": "atrocious"
+        }
+    ],
     "meta": {}
 }
