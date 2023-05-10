@@ -189,7 +189,9 @@ class Quiz:
 
                 # Check the user's answer
             normalized_answer = self.normalize_answer(answer)
-            if normalized_answer == random_word.get('english'):
+            normalized_correct_answer = self.normalize_answer(
+                random_word.get('english'))
+            if normalized_answer == normalized_correct_answer:
                 print("\nCorrect! ⭐️ \n")
                 break
 
