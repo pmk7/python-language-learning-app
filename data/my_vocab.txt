@@ -850,7 +850,7 @@ jittery [coll.]	hibbelig [ugs.]
 invincible	unschlagbar
 in awe	in Ehrfurcht
 thrill	Nervenkitzel {m} [ugs.]
-late sequelae	Spätfolgen {pl}
+side effects	Spätfolgen {pl}
 salvation	Erlösung {f}
 approachable [of a person]	zugewandt [fig.]
 to savour [Br.]	auskosten

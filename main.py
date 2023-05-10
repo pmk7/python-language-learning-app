@@ -1,6 +1,7 @@
 import os
 import random
 import json
+import re
 from datetime import datetime
 from sen_gen import SentenceGenerator
 from data import *
@@ -138,38 +139,63 @@ class Quiz:
 
         print(f"Welcome to the German Quiz!\n")
 
+    def normalize_answer(self, answer):
+        # Remove 'to ' from the beginning of the answer
+        answer = re.sub(r'^to\s', '', answer)
+
+        # Remove square brackets and their content
+        answer = re.sub(r'\[.*?\]', '', answer)
+
+        # Remove curly brackets and their content
+        answer = re.sub(r'\{.*?\}', '', answer)
+
+        # Remove regular brackets and their content
+        answer = re.sub(r'\(.*?\)', '', answer)
+
+        # Remove leading and trailing spaces
+        answer = answer.strip()
+
+        return answer
+
     def random_word(self):
         """ Selects a random word from the vocabulary and quizzes the user """
-        # Generate a random number within the range of the vocabulary length
-        random_num = random.randint(0, len(self.vocab) - 1)
-        random_word = self.vocab[random_num]
-        ger_word = random_word.get('german')
+        while True:
+            # Generate a random number within the range of the vocabulary length
+            random_num = random.randint(0, len(self.vocab) - 1)
+            random_word = self.vocab[random_num]
+            ger_word = random_word.get('german')
 
-        # Test if the API is working
-        test = SentenceGenerator(api_key)
-        api_test = test.test_api('haus')
+            # Test if the API is working
+            test = SentenceGenerator(api_key)
+            api_test = test.test_api('haus')
 
-        # Prompt user for an answer with a hint option if API is working
-        if api_test:
-            answer = input(
-                f"What is the English translation of {ger_word}? Press 'h' for a hint:  \n")
-        else:
-            answer = input(
-                f"What is the English translation of {ger_word}? \n")
+            # Prompt user for an answer with a hint option if API is working
+            if api_test:
+                answer = input(
+                    f"What is the English translation of {ger_word}? Press 'h' for a hint or 's' to skip:  \n")
+            else:
+                answer = input(
+                    f"What is the English translation of {ger_word}? Press 's' to skip: \n")
 
-        # Provide a hint if the user inputs 'h' and API is working
-        if answer == 'h' and api_test:
-            word = SentenceGenerator(api_key)
-            print(word.generate_sentence(ger_word) + "\n")
-            answer = input("Answer: ")
+                if answer.lower() == 's':
+                    print("Skipping this word.\n")
+                    continue
 
-        # Check the user's answer
-        if answer == random_word.get('english'):
-            print("\nCorrect! ⭐️ \n")
+            # Provide a hint if the user inputs 'h' and API is working
+            if answer == 'h' and api_test:
+                word = SentenceGenerator(api_key)
+                print(word.generate_sentence(ger_word) + "\n")
+                answer = input("Answer: ")
 
-        elif answer != random_word.get('english'):
-            print("Incorrect! Answer: " + random_word.get("english") +
-                  "\n" + "Would you like to add this word to your dictionary?")
+                # Check the user's answer
+            normalized_answer = self.normalize_answer(answer)
+            if normalized_answer == random_word.get('english'):
+                print("\nCorrect! ⭐️ \n")
+                break
+
+            else:
+                print("\nIncorrect! Answer: " + random_word.get("english") +
+                      "\n" + "Would you like to add this word to your dictionary?")
 
             # Check if the user is playing the dictionary quiz
             if not self.is_dictionary_quiz:
@@ -181,8 +207,7 @@ class Quiz:
 
                 elif userInput == 'n':
                     print("Word not added!")
-        else:
-            quit()
+            break
 
 
 class Menu:
@@ -270,8 +295,8 @@ class Menu:
 
 
 # john = RegularUser("John", data_directory)
-# sarah = PremiumUser("Sarah", data_directory)
+sarah = PremiumUser("Sarah", data_directory)
 
 
 # player1 = Menu(john, my_words)  # For a regular users
-# player2 = Menu(sarah, my_words)  # For a premium user
+player2 = Menu(sarah, my_words)  # For a premium user
