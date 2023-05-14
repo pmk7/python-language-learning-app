@@ -18,6 +18,7 @@ class BaseUser:
     def __init__(self, username, filepath):
         self.username = username
         self.filepath = f"{filepath}/{self.username}.json"
+        self.vocab_set = set()
 
         if not os.path.exists(self.filepath):
             self.vocab = []
@@ -32,7 +33,7 @@ class BaseUser:
             data = json.load(file)
             self.vocab = data.get('vocab', [])
             self.vocab_meta = data.get('meta', {})
-            # Using a set for faster lookups
+            # Populate vocab_set with words from vocab
             self.vocab_set = {word['german'] for word in self.vocab}
 
     def save_vocab(self):
@@ -180,7 +181,7 @@ class Quiz:
 
             # Test if the API is working
             test = SentenceGenerator(api_key)
-            api_test = test.test_api('haus')
+            api_test = test.test_api('test')
 
             # Prompt user for an answer with a hint option if API is working
             if api_test:
@@ -214,9 +215,11 @@ class Quiz:
             if normalized_answer == normalized_correct_answer:
                 print("\nCorrect! ⭐️ \n")
                 break
-            else:
+            elif normalized_answer != normalized_correct_answer and not self.is_dictionary_quiz:
                 print("\nIncorrect! Answer: " + random_word.get("english") +
                       "\n" + "Would you like to add this word to your dictionary?")
+            else:
+                print("\nIncorrect! Answer: " + random_word.get("english"))
 
                 # Check if the user is playing the dictionary quiz
                 if not self.is_dictionary_quiz:
@@ -250,7 +253,8 @@ class Menu:
             print("\n3. Study My Dictionary\n")
             print("\n4. Quit\n")
 
-            choice = input("What would you like to do? Select a number: ")
+            choice = input(
+                f"What would you like to do, {user.username} ? Select a number: ")
 
             # Quiz with all words
             if choice == '1':
@@ -280,13 +284,9 @@ class Menu:
                         print(
                             "You've reached the limit of 3 words per day. Please try again tomorrow or upgrade to Premium.")
                     else:
-                        if not user.add_word(german_word, english_word):
-                            print(
-                                f"{german_word} is already in your dictionary")
-                        else:
-                            user.add_word(german_word, english_word)
-                            print(
-                                f"Added {german_word} ({english_word}) to your dictionary.")
+                        user.add_word(german_word, english_word)
+                        print(
+                            f"Added {german_word} ({english_word}) to your dictionary.")
 
                 # Delete words from the user's dictionary
                 elif edit_choice == 'delete':
