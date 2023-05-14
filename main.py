@@ -194,6 +194,7 @@ class Quiz:
             # Handle user's decision to skip the word
             if answer.lower() == 's':
                 if len(self.vocab) > 1:
+                    print("\n Answer: " + random_word.get('english'))
                     print("Skipping this word.\n")
                     continue
                 else:
