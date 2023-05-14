@@ -217,6 +217,8 @@ class Quiz:
 
             if normalized_answer == normalized_correct_answer:
                 print("\nCorrect! ⭐️ \n")
+            elif normalized_answer != normalized_correct_answer and self.is_dictionary_quiz:
+                print('\nIncorrect! Answer: ' + random_word.get('english'))
             else:
                 print("\nIncorrect! Answer: " + random_word.get("english") +
                       "\n" + "Would you like to add this word to your dictionary?")
