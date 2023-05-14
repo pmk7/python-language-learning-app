@@ -9,6 +9,26 @@
             "id": 2,
             "german": "Haus",
             "english": "house"
+        },
+        {
+            "id": 3,
+            "german": "Kulanz {f}",
+            "english": "goodwill [of a company]"
+        },
+        {
+            "id": 4,
+            "german": "lotsen",
+            "english": "to route"
+        },
+        {
+            "id": 5,
+            "german": "zuständig für etw [Akk] sein",
+            "english": "to be responsible for sth"
+        },
+        {
+            "id": 6,
+            "german": "ahnen",
+            "english": "to anticipate"
         }
     ],
     "meta": {}

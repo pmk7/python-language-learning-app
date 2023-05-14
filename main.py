@@ -186,10 +186,10 @@ class Quiz:
             # Prompt user for an answer with a hint option if API is working
             if api_test:
                 answer = input(
-                    f"What is the English translation of {ger_word}? Press 'h' for a hint or 's' to skip:  \n")
+                    f"What is the English translation of {ger_word}? Press 'h' for a hint or 's' to skip or 'b' to go back to menu:  \n")
             else:
                 answer = input(
-                    f"What is the English translation of {ger_word}? Press 's' to skip: \n")
+                    f"What is the English translation of {ger_word}? Press 's' to skip or 'b' to go back to menu: \n")
 
             # Handle user's decision to skip the word
             if answer.lower() == 's':
@@ -207,6 +207,9 @@ class Quiz:
                 print(word.generate_sentence(ger_word) + "\n")
                 answer = input("Answer: ")
 
+            if answer.lower() == 'b':
+                return 'back_to_menu'
+
             # Check the user's answer
             normalized_answer = self.normalize_answer(answer)
             normalized_correct_answer = self.normalize_answer(
@@ -214,23 +217,22 @@ class Quiz:
 
             if normalized_answer == normalized_correct_answer:
                 print("\nCorrect! ⭐️ \n")
-                break
-            elif normalized_answer != normalized_correct_answer and not self.is_dictionary_quiz:
+            else:
                 print("\nIncorrect! Answer: " + random_word.get("english") +
                       "\n" + "Would you like to add this word to your dictionary?")
-            else:
-                print("\nIncorrect! Answer: " + random_word.get("english"))
 
-                # Check if the user is playing the dictionary quiz
-                if not self.is_dictionary_quiz:
+                user_input = input("Press 'y' for yes and 'n' for no: ")
+                while user_input not in ['y', 'n']:
+                    print("Invalid input. Please enter 'y' for yes or 'n' for no.")
                     user_input = input("Press 'y' for yes and 'n' for no: ")
-                    if user_input == 'y':
-                        self.user.add_word(
-                            ger_word, random_word.get('english'))
-                        print("Word added!")
-                    elif user_input == 'n':
-                        print("Word not added!")
-            break
+
+                if user_input == 'y':
+                    self.user.add_word(ger_word, random_word.get('english'))
+                    print("Word added!")
+                elif user_input == 'n':
+                    print("Word not added!")
+
+                continue
 
 
 class Menu:
@@ -263,7 +265,9 @@ class Menu:
                         "You can only add 3 words per day. Please try again tomorrow or upgrade to Premium.")
                 else:
                     game1 = Quiz(my_words, user)
-                    game1.random_word()
+                    result = game1.random_word()
+                    if result == 'back_to_menu':
+                        continue
 
             # Edit user's dictionary
             elif choice == '2':
@@ -310,7 +314,7 @@ class Menu:
 
             # Quit the application
             elif choice == '4':
-                quit()
+                break
 
             # Invalid menu choice
             else:
