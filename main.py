@@ -238,6 +238,10 @@ class Quiz:
 
                 continue
 
+        def __str__(self):
+            quiz_type = "Dictionary Quiz" if self.is_dictionary_quiz else "Vocabulary Quiz"
+            return f"Quiz Type: {quiz_type}, User: {self.user.username}"
+
 
 class Menu:
     def __init__(self, user, vocab):
@@ -249,6 +253,7 @@ class Menu:
         """
         self.user = user
         self.vocab = vocab
+        self.choice = None
 
         print(f"\nWelcome {user.username} to your Language App!\n")
 
@@ -259,11 +264,11 @@ class Menu:
             print("\n3. Study My Dictionary\n")
             print("\n4. Quit\n")
 
-            choice = input(
+            self.choice = input(
                 f"What would you like to do, {user.username} ? Select a number: ")
 
             # Quiz with all words
-            if choice == '1':
+            if self.choice == '1':
                 if isinstance(user, RegularUser) and not user.can_add_word():
                     print(
                         "You can only add 3 words per day. Please try again tomorrow or upgrade to Premium.")
@@ -274,7 +279,7 @@ class Menu:
                         continue
 
             # Edit user's dictionary
-            elif choice == '2':
+            elif self.choice == '2':
                 user.print_my_vocab()
                 print("\nDo you want to add or delete words from your dictionary?\n")
                 edit_choice = input(
@@ -312,7 +317,7 @@ class Menu:
                     continue
 
             # Quiz with the user's saved dictionary words
-            elif choice == '3':
+            elif self.choice == '3':
                 if len(user.vocab) == 0:
                     print(
                         "Your dictionary is empty. Add words to your dictionary before studying.")
@@ -321,13 +326,16 @@ class Menu:
                     game2.random_word()
 
             # Quit the application
-            elif choice == '4':
+            elif self.choice == '4':
                 break
 
             # Invalid menu choice
             else:
                 print("Invalid choice. Please try again.")
                 continue
+
+    def __str__(self):
+        return f"User: {self.user.username}, Last Selected Option: {self.choice}"
 
 
 # john = RegularUser("John", data_directory)
