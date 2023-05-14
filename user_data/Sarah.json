@@ -4,6 +4,11 @@
             "id": 1,
             "german": "grauenhaft",
             "english": "atrocious"
+        },
+        {
+            "id": 2,
+            "german": "Haus",
+            "english": "house"
         }
     ],
     "meta": {}

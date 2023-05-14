@@ -24,11 +24,11 @@ class SentenceGenerator:
 
             response_text = response.get('choices')[0].get('text')
             return response_text.strip()
-        except openai.error.OpenAIError as e:
-            print(f"Error connecting to the OpenAI API: {e}")
+        except openai.error.OpenAIError as error:
+            print(f"Error connecting to the OpenAI API: {error}")
             return None
-        except Exception as e:
-            print(f"Unexpected error: {e}")
+        except Exception as error:
+            print(f"Unexpected error: {error}")
             return None
 
     def test_api(self, word):
@@ -45,9 +45,10 @@ class SentenceGenerator:
                 return True
             else:
                 return False
-        except openai.error.OpenAIError as e:
-            # print(f"Error connecting to the OpenAI API: {e}")
+        except openai.error.OpenAIError as error:
+
+            # print(f"Error connecting to the OpenAI API: {error}")
             return False
-        except Exception as e:
-            # print(f"Unexpected error: {e}")
+        except Exception as error:
+            # print(f"Unexpected error: {error}")
             return False

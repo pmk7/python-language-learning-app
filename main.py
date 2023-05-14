@@ -57,6 +57,8 @@ class BaseUser:
         """Adds a word to the user's vocabulary"""
         if german in self.vocab_set:
             print('Already contained!')
+            return False
+
         else:
             word_id = len(self.vocab) + 1
             word = {'id': word_id, 'german': german,
@@ -138,8 +140,6 @@ class Quiz:
         self.vocab = vocab
         self.user = user
         self.is_dictionary_quiz = is_dictionary_quiz
-
-        print(f"Welcome to the German Quiz!\n")
 
     def normalize_answer(self, answer):
         """
@@ -276,13 +276,17 @@ class Menu:
                 if edit_choice == 'add':
                     german_word = input("Enter the German word: ")
                     english_word = input("Enter the English translation: ")
-                    if user.add_word(german_word, english_word) != False:
+                    if isinstance(user, RegularUser) and not user.can_add_word():
                         print(
                             "You've reached the limit of 3 words per day. Please try again tomorrow or upgrade to Premium.")
                     else:
-                        user.add_word(german_word, english_word)
-                        print(
-                            f"Added {german_word} ({english_word}) to your dictionary.")
+                        if not user.add_word(german_word, english_word):
+                            print(
+                                f"{german_word} is already in your dictionary")
+                        else:
+                            user.add_word(german_word, english_word)
+                            print(
+                                f"Added {german_word} ({english_word}) to your dictionary.")
 
                 # Delete words from the user's dictionary
                 elif edit_choice == 'delete':
@@ -295,7 +299,7 @@ class Menu:
                 elif edit_choice == 'back':
                     continue
 
-            # Quiz with the user's dictionary words
+            # Quiz with the user's saved dictionary words
             elif choice == '3':
                 if len(user.vocab) == 0:
                     print(
