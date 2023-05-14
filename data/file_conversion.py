@@ -74,7 +74,7 @@ def save_vocab_to_json(vocab, filepath):
 
 # Specify the paths of the vocabulary and JSON files
 vocab_txt_file = "data/my_vocab.txt"
-vocab_json_file = "my_words.json"
+vocab_json_file = "data/my_words.json"
 
 # Convert the vocabulary file to a list of dictionaries
 my_words = convert_txt_to_vocab_list(vocab_txt_file)

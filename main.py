@@ -194,7 +194,7 @@ class Quiz:
             # Handle user's decision to skip the word
             if answer.lower() == 's':
                 if len(self.vocab) > 1:
-                    print("\n Answer: " + random_word.get('english'))
+                    print("Answer: " + random_word.get('english'))
                     print("Skipping this word.\n")
                     continue
                 else:
@@ -299,8 +299,12 @@ class Menu:
                 elif edit_choice == 'delete':
                     german_word = input(
                         "Enter the German word you want to remove: ")
-                    user.remove_word(german_word)
-                    print(f"Removed {german_word} from your dictionary.")
+                    if user.remove_word(german_word) == False:
+                        print(
+                            f"{german_word} is not in your dictionary. Please try again.")
+                    else:
+                        user.remove_word(german_word)
+                        print(f"Removed {german_word} from your dictionary.")
 
                 # Return to the main menu
                 elif edit_choice == 'back':
