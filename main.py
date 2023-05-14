@@ -228,11 +228,13 @@ class Quiz:
                     print("Invalid input. Please enter 'y' for yes or 'n' for no.")
                     user_input = input("Press 'y' for yes and 'n' for no: ")
 
-                if user_input == 'y' and self.user.can_add_word():
-                    self.user.add_word(ger_word, random_word.get('english'))
-                    print("Word added!")
-                elif user_input == 'y' and not self.user.can_add_word():
-                    print("You can only add 3 words per day")
+                if user_input == 'y':
+                    if isinstance(self.user, RegularUser) and not self.user.can_add_word():
+                        print("You can only add 3 words per day")
+                    else:
+                        self.user.add_word(
+                            ger_word, random_word.get('english'))
+                        print("Word added!")
                 elif user_input == 'n':
                     print("Word not added!")
 
