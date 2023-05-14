@@ -229,9 +229,11 @@ class Quiz:
                     print("Invalid input. Please enter 'y' for yes or 'n' for no.")
                     user_input = input("Press 'y' for yes and 'n' for no: ")
 
-                if user_input == 'y':
+                if user_input == 'y' and self.user.can_add_word():
                     self.user.add_word(ger_word, random_word.get('english'))
                     print("Word added!")
+                elif user_input == 'y' and not self.user.can_add_word():
+                    print("You can only add 3 words per day")
                 elif user_input == 'n':
                     print("Word not added!")
 
@@ -277,11 +279,11 @@ class Menu:
                 user.print_my_vocab()
                 print("\nDo you want to add or delete words from your dictionary?\n")
                 edit_choice = input(
-                    "Type 'add' to add words, 'delete' to delete words or 'back' to return to the menu: ")
+                    "Type 'add' to add words, 'del' to delete words or 'b' to return to the menu: ")
 
-                while edit_choice not in ['add', 'delete', 'back']:
+                while edit_choice not in ['add', 'del', 'b']:
                     edit_choice = input(
-                        "Invalid choice. Type 'add' to add words, 'delete' to delete words or 'back' to return to the menu: ")
+                        "Invalid choice. Type 'add' to add words, 'del' to delete words or 'b' to return to the menu: ")
 
                 # Add words to the user's dictionary
                 if edit_choice == 'add':
@@ -329,9 +331,9 @@ class Menu:
                 continue
 
 
-# john = RegularUser("John", data_directory)
-sarah = PremiumUser("Sarah", data_directory)
+john = RegularUser("John", data_directory)
+# sarah = PremiumUser("Sarah", data_directory)
 
 
-# player1 = Menu(john, my_words)  # For a regular users
-player2 = Menu(sarah, my_words)  # For a premium user
+player1 = Menu(john, my_words)  # For a regular users
+# player2 = Menu(sarah, my_words)  # For a premium user

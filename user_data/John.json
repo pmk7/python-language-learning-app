@@ -1,0 +1,23 @@
+{
+    "vocab": [
+        {
+            "id": 1,
+            "german": "Strahlentherapie {f}",
+            "english": "radiotherapy"
+        },
+        {
+            "id": 2,
+            "german": "streben",
+            "english": "to aspire"
+        },
+        {
+            "id": 3,
+            "german": "erfunden",
+            "english": "invented"
+        }
+    ],
+    "meta": {
+        "words_today": 3,
+        "last_update": "2023-05-14"
+    }
+}
