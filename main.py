@@ -51,8 +51,7 @@ class BaseUser:
         word = [i for i in self.vocab if i['german'] == german]
         if word:
             return word[0]
-        else:
-            return print('Word not found!')
+        return
 
     def add_word(self, german, english):
         """Adds a word to the user's vocabulary"""
@@ -298,7 +297,7 @@ class Menu:
                             f"Added {german_word} ({english_word}) to your dictionary.")
 
                 # Delete words from the user's dictionary
-                elif edit_choice == 'delete':
+                elif edit_choice == 'del':
                     german_word = input(
                         "Enter the German word you want to remove: ")
                     if user.remove_word(german_word) == False:
@@ -309,7 +308,7 @@ class Menu:
                         print(f"Removed {german_word} from your dictionary.")
 
                 # Return to the main menu
-                elif edit_choice == 'back':
+                elif edit_choice == 'b':
                     continue
 
             # Quiz with the user's saved dictionary words
@@ -331,9 +330,9 @@ class Menu:
                 continue
 
 
-john = RegularUser("John", data_directory)
+# john = RegularUser("John", data_directory)
 # sarah = PremiumUser("Sarah", data_directory)
 
 
-player1 = Menu(john, my_words)  # For a regular users
+# player1 = Menu(john, my_words)  # For a regular users
 # player2 = Menu(sarah, my_words)  # For a premium user
