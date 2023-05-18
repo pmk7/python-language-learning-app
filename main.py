@@ -340,9 +340,9 @@ class Menu:
         return f"User: {self.user.username}, Last Selected Option: {self.choice}"
 
 
-# john = RegularUser("John", data_directory)
+john = RegularUser("John", data_directory)
 # sarah = PremiumUser("Sarah", data_directory)
 
 
-# player1 = Menu(john, my_words)  # For a regular users
+player1 = Menu(john, my_words)  # For a regular users
 # player2 = Menu(sarah, my_words)  # For a premium user
