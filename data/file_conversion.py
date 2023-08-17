@@ -47,9 +47,11 @@ def convert_txt_to_vocab_list(filepath):
             # Split each line into English and German words
             eng_word, ger_word = word.split(" : ")
 
+            sentence = ''
+
             # Create a dictionary for each word
             word_dict = {'id': word_id,
-                         'german': ger_word, 'english': eng_word}
+                         'german': ger_word, 'english': eng_word, 'sentence': sentence}
             my_words.append(word_dict)
 
     except FileNotFoundError:

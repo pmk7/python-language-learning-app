@@ -1,5 +1,27 @@
+to concern sb./sth. [relate to]	jdn./etw. anbelangen
+to confess	beichten
+to mull [rare] [to bungle]	verpatzen [ugs.]
+to get off lightly [idiom]	glimpflich davonkommen [Redewendung]
+to depose sb.	jdn. seines Amtes entheben
+to incite	anstiften
+bound  [enchained]	gefesselt
+grievances	Missstände {pl}
+extent	Ausdehnung {f}
+to abut	anliegen
+forceps [more than one pair]	Zangen {pl}
+likeness	Ebenbild {n}
+far-fetched	an den Haaren herbeigezogen [ugs.] [Redewendung]
+to be in a sorry state [idiom]	im Argen liegen [Redewendung]
+to tower	sich [Akk.] auftürmen
+pliability	Biegsamkeit {f}
+to tilt	verkanten
+gondola	Gondel {f}
+to prevail against sb.	jdn. unterkriegen [ugs.]
+PowerPoint slides	PowerPoint-Folien {pl}
+moniker [coll.] [nickname]	Spitzname {m}
+stunning	atemberaubend
+retaliation	Heimzahlung {f}
 to attain sth.	etw. erlangen
-
 muddleheadedness	Schusseligkeit {f} [ugs.]
 board of directors [supervisory board]	Aufsichtsrat {m}
 accolade [ceremonial gesture used to confer knighthood]	Ritterschlag {m}
@@ -7,13 +29,14 @@ thorough	sorgfältig
 to catch the speaker's eye	sich zu Wort melden
 to snort	schnauben
 to polish up	aufpolieren
+to polish up [knowledge]	auffrischen [Kenntnisse]
 with a shrug	mit einem Schulterzucken
 shrug	Schulterzucken {n}
 reprehensible	verwerflich
 pertinent	sachdienlich
 to target sth.	etw. anstreben
 wistful	schwermütig
-to veil	verschleiern
+to veil sb./sth.	jdn./etw. verschleiern
 confidence	Zuversicht {f}
 to cause sth. [damage, harm, etc.]	etw. anrichten [Schaden, Unheil etc.]
 to con sb. [coll.]	jdn. reinlegen [ugs.]
@@ -88,7 +111,7 @@ to nurture [idea, ambitions]	hegen
 superficial  [fig.]	seicht [fig.]
 deceived	hintergangen
 naivety	Blauäugigkeit {f}
-to slumber	schlummern
+to slumber	schlummern [geh.]
 to bomb [Am.] [coll.] [event]	ein Reinfall sein [ugs.] [Veranstaltung]
 to trivialize sth.	etw. [Akk.] bagatellisieren
 cesspool	Jauchegrube {f}
@@ -181,7 +204,7 @@ affable	umgänglich
 incomer [Br.]	Zuzügler {m}
 to exude sth. [fig.]	etw. ausstrahlen [fig.]
 sleeping beauty slumber	Dornröschenschlaf {m}
-to manage sth.	etw. hinkriegen [ugs.]
+to manage sth.	etw. [Akk.] hinkriegen [ugs.]
 hub	Drehscheibe {f} [a. fig.]
 to be indignant at sth.	sich [Akk.] über etw. [Akk.] empören
 simplistic	grob vereinfachend
@@ -247,7 +270,7 @@ to help oneself	zulangen
 predictable [person]	durchschaubar
 envious	neidisch
 to quilt	wattieren
-to wrap up [in warm clothing, blankets etc.]	sich einmummeln [ugs.] [in warme Kleidung, Deken etc.]
+to wrap up [in warm clothing, blankets etc.]	sich einmummeln [ugs.] [in warme Kleidung, Decken etc.]
 seminal	bahnbrechend
 profound	fundiert
 written off	totgesagt [fig.]
@@ -271,7 +294,7 @@ to suffer a loss	einbüßen
 to take (a) breath	(sich [Akk.]) verschnaufen
 unprofessional	laienhaft
 to infect sb./sth.	jdn./etw. durchseuchen [infizieren]
-brash [way of talking]	schnodderig [ugs.]
+brash [way of talking]	schnodderig [ugs.] [pej.]
 illogical	ungereimt [nicht stimmig]
 chimney	Schornstein {m}
 to smooth	ebnen
@@ -281,7 +304,6 @@ to look good enough to eat [person] [coll.]	zum Anbeißen aussehen [ugs.]
 to sketch sth. [also fig.: outline]	etw. [Akk.] skizzieren [auch fig.: umreißen, kurz schildern]
 to engage sb.	jdn. anheuern
 to be on one's last legs [idiom]	auf dem Zahnfleisch kriechen [Redewendung]
-to be attracted to sb.	sich zu jdm. hingezogen fühlen
 hypocritical	scheinheilig
 to chum up (with sb.) [Br.] [coll.] [curry favour with sb.]	sich [Akk.] (jdm.) anbiedern
 heavy	bleiern [fig.] [Schlaf, Augenlider usw.]
@@ -432,12 +454,12 @@ atrial fibrillation <AF>	Vorhofflimmern {n}
 outpatient	ambulant
 to enshrine sth. [rights in law etc.]	etw. [Akk.] verankern [Rechte etc.]
 leftovers	Ladenhüter {pl}
-to overexert	überfordern
+to overexert sb./sth.	jdn./etw. überfordern
 friction	Reibung {f} [auch fig.]
 patch	Aufnäher {m}
 to happen	sich zutragen [geh.]
 fleeting	flüchtig [Blick, Eindruck, Moment etc.]
-to change	sich wandeln
+to change	sich [Akk.] wandeln
 meticulous	akribisch [geh.]
 to refresh	auffrischen [auch fig.]
 to tremble	zittern
@@ -591,7 +613,6 @@ ancient	uralt
 sth. smacked of sth. [fig.] [suggested sth.]	etw. roch nach etw. [Dat.] [ugs.] [fig.]
 caterpillar [insect]	Raupe {f}
 to soak	einweichen
-yesterday's	gestrig
 to draw a bath	Badewasser einlassen
 to touch	berühren
 to top	überragen
@@ -650,7 +671,6 @@ biased	voreingenommen
 fastidious	penibel
 practicality	Sachlichkeit {f}
 obtrusiveness	Penetranz {f} [Aufdringlichkeit]
-to get off lightly [idiom]	glimpflich davonkommen [Redewendung]
 to provide	versorgen
 to waste sth. [money, time]	etw. [Akk.] verplempern [ugs.]
 omission	Versäumnis {n}
@@ -797,9 +817,19 @@ to inflate	aufblasen
 to whip	geißeln
 nasty piece of work [coll.]	übler Kerl {m} [ugs.]
 Quite possibly, but ...	Das mag sein, aber ...
-to consider sth. [look at carefully]	etw. betrachten
+to consider sth. [look at carefully]	etw. [Akk.] betrachten
 vagabond	umherschweifend
 upheaval	Umwälzung {f}
+to be attracted to sb.	sich zu jdm. hingezogen fühlen
+scared	verängstigt
+outside  [observer]	außenstehend [Beobachter]
+to be under the hammer	versteigert werden
+rump	Steiß {m}
+barking	bellend
+to spin	trudeln
+stoned [coll.] [drunk] [rare]	rauschig [österr.] [ugs.] [betrunken]
+inappropriate	unangebracht
+
 I give up!	Ich bin mit meinem Latein am Ende!
 to get on sb.'s tits [Br.] [vulg.] [idiom]	jdm. auf die Eier gehen [ugs.] [derb] [Redewendung]
 neglecting	vernachlässigend
@@ -826,6 +856,11 @@ sth. flutters	etw. flattert
 to latch	verriegeln
 deceptively	täuschend
 It might be that ...	Es mag sein, dass ... [Möglichkeit, Vermutung]
+to champ	schmatzen
+blurted out	herausgeplatzt
+to be touchy	empfindlich sein
+to spark	funken [Funken sprühen]
+
 to feel sth.	etw. [Akk.] verspüren
 dreadful	greulich [alt]
 resilient	belastbar
@@ -841,16 +876,18 @@ to prove sth.	etw. [Akk.] belegen [beweisen, nachweisen]
 awkward [problem, question, situation]	heikel
 medicine	Arznei {f}
 to participate	beteiligen
+
 wilful negligence [Br.]	bewusste Fahrlässigkeit {f}
 inmate	Insasse {m}
 essential	maßgeblich [wesentlich]
+
 delicious	köstlich
 one's weaker self	innerer Schweinehund {m} [fig.]
 jittery [coll.]	hibbelig [ugs.]
 invincible	unschlagbar
 in awe	in Ehrfurcht
 thrill	Nervenkitzel {m} [ugs.]
-side effects	Spätfolgen {pl}
+late sequelae	Spätfolgen {pl}
 salvation	Erlösung {f}
 approachable [of a person]	zugewandt [fig.]
 to savour [Br.]	auskosten
@@ -862,7 +899,7 @@ swift	zügig
 crusade	Kreuzzug {m}
 It is a matter of sth.	Es handelt sich um etw.
 to sugarcoat sth. [fig.]	etw. [Akk.] schönreden
-stubborn	stur [ugs.]
+stubborn	stur [ugs.] [pej.]
 conspicuous	auffällig
 to involve	einbeziehen
 row [Br.] [coll.] [quarrel]	Zerwürfnis {n} [geh.]
@@ -1025,7 +1062,7 @@ to dump sth.	etw. loswerden
 etiquette guide	Knigge {m}
 It was noticeable.	Es ist aufgefallen.
 grief counselor [Am.]	Trauerbegleiter {m}
-to create sth. [produce]	etw. erzeugen
+to create sth. [produce]	etw. [Akk.] erzeugen
 passed [examination]	absolviert [Prüfung]
 accessory [subordinate or supplementary part of minor importance]	Nebensache {f}
 whenever possible	wann immer es möglich ist
@@ -1060,7 +1097,7 @@ encouraging	ermutigend
 sensitive	hellhörig
 renovations	Umbauarbeiten {pl}
 trouble [quarrel]	Zoff {m} [ugs.]
-to assign	beauftragen
+to assign sb.	jdn. beauftragen
 to survey	begutachten
 to argue	erörtern
 balanced	ausgewogen
